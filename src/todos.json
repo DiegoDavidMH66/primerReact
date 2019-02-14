@@ -1,0 +1,34 @@
+{
+  "task":[
+    {
+      "titulo": "Tarea 1",
+      "responsable": "Diego",
+      "descripcion": "des1",
+      "prioridad": "alta"
+    },
+    {
+      "titulo": "Tarea 2",
+      "responsable": "David",
+      "descripcion": "des2",
+      "prioridad": "media"
+    },
+    {
+      "titulo": "Tarea 3",
+      "responsable": "Juan",
+      "descripcion": "des3",
+      "prioridad": "baja"
+    },
+    {
+      "titulo": "Tarea 4",
+      "responsable": "Pablo",
+      "descripcion": "des4",
+      "prioridad": "alta"
+    },
+    {
+      "titulo": "Tarea 5",
+      "responsable": "Pablo2",
+      "descripcion": "des5",
+      "prioridad": "baja"
+    }
+  ]
+}
