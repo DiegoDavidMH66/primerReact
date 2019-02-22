@@ -9,5 +9,4 @@ class Navegacion1 extends Component{
     )
   }
 }
-
 export default Navegacion1;
