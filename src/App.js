@@ -5,26 +5,32 @@ import './App.css';
 import FormIngreso from './componentes/formulario.js'
 
 import {task} from './todos.json';
-console.log(task);
+//console.log(task);
 
 class App extends Component {
   //Constructor para inicializar los datos al cargar la pagina(componente)
   constructor(){
      super();
-     this.state = {task}
+     this.state = {task};
+     this.agregarTarea = this.agregarTarea.bind(this);
   }
+
+  agregarTarea(tarea){
+    this.setState({task: [...this.state.task, tarea]})
+  }
+
   render() {
     const tareas = this.state.task.map((task, i) => {
       var tipo = "";
 
       switch (task.prioridad) {
-        case "alta":
+        case "Alta":
           tipo="badge badge-pill badge-danger ml-2";
           break;
-        case "media":
+        case "Media":
           tipo="badge badge-pill badge-warning ml-2";
           break;
-        case "baja":
+        case "Baja":
           tipo="badge badge-pill badge-success ml-2";
           break;
         default:
@@ -55,7 +61,7 @@ class App extends Component {
           <div className="row mt-4">
             <div className="col-md-4">
               <img src={logo} className="App-logo" alt="logo" />
-              <FormIngreso />
+              <FormIngreso enAgregarTarea={this.agregarTarea}/>
             </div>
             <div className="col-md-8">
               <div className="row">
