@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-//import Navegacion1 from './componentes/navegacion1.js';
+import Navegacion1 from './componentes/navegacion1.js';
 import FormIngreso from './componentes/formulario.js'
 
 import {task} from './todos.json';
@@ -13,10 +13,20 @@ class App extends Component {
      super();
      this.state = {task};
      this.agregarTarea = this.agregarTarea.bind(this);
+     //this.eliminarTarea = this.eliminarTarea.bind(this);
   }
 
   agregarTarea(tarea){
     this.setState({task: [...this.state.task, tarea]})
+  }
+
+  eliminarTarea(index){
+    //console.log(index);
+    this.setState({
+      task: this.state.task.filter((task,i)=>{
+        return i !== index
+      })
+    })
   }
 
   render() {
@@ -46,19 +56,19 @@ class App extends Component {
               <p>{task.descripcion}</p>
               <p><mark>{task.responsable}</mark></p>
             </div>
+            <div className="card-footer">
+              <button className="btn btn-outline-danger btn-sm" onClick={this.eliminarTarea.bind(this,i)}>Eliminar</button>
+            </div>
           </div>
         </div>
       )
     })
     return (
       <div className="App">
-        <nav className="nav navbar-dark bg-dark">
-          <a href="www.google.com" className="text-white">
-          Tareas<span className="badge badge-pill badge-light ml-2">{this.state.task.length}</span>
-          </a>
-        </nav>
+      <Navegacion1 nombre={this.state.task.length}/>
+
         <div className="container">
-          <div className="row mt-4">
+          <div className="row mt-5">
             <div className="col-md-4">
               <img src={logo} className="App-logo" alt="logo" />
               <FormIngreso enAgregarTarea={this.agregarTarea}/>

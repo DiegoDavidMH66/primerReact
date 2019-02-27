@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class FormIngreso extends Component {
   constructor(){
     super();
-    this.state = {titulo:'', responsable:'', descripcion:'', prioridad:'baja'};
+    this.state = {titulo:'', responsable:'', descripcion:'', prioridad:''};
     this.obtenerValor = this.obtenerValor.bind(this);
     this.enviarDatos_enSubmit = this.enviarDatos_enSubmit.bind(this);
   }
@@ -20,8 +20,12 @@ class FormIngreso extends Component {
 
   enviarDatos_enSubmit(e){
     e.preventDefault();
-    this.props.enAgregarTarea(this.state);
-    console.log(this.state);
+    if(this.state.titulo !== ''){
+      this.props.enAgregarTarea(this.state);
+    }else{
+      alert("Formulario Vacío");
+    }
+    //console.log(this.state);
     //alert("sad");
   }
 
